@@ -1,0 +1,4 @@
+{
+    "connectionString" : "mongodb+srv://test:test@cluster0.bcd7j.mongodb.net/TodoList?retryWrites=true&w=majority",
+    "key" : "Everyone has an secret"
+}
