@@ -4,7 +4,6 @@
   "description": "This app is used to create tasks and store it in one place.Lets you create,edit and delete tasks.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
   "author": "Naveen kumar",
@@ -17,6 +16,7 @@
     "express": "^4.17.1",
     "method-override": "^3.0.0",
     "mongoose": "^5.10.9",
+    "password-hash": "^1.2.2",
     "rootpath": "^0.1.2"
   }
 }

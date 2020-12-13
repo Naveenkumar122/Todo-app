@@ -20,35 +20,43 @@ router.delete('/:id/delete', _delete);
 router.get('/confirm/:id',updateCfrm);
 
 module.exports = router;
+
+//update confirm route
 function updateCfrm(req,res,next){
     userService.updtCfrm(req.params.id)
-        .then(tasks => tasks ? res.render('Ejs/home',{list:tasks}) : res.status(400).json({ message: 'Something went wrong' }))
+        .then(()=>res.redirect('/todo/home'))
         .catch(err => next(err));
 }
+
+//home route
 function ldHome( req,res, next) {
     userService.loadTasks()
         .then(tasks => tasks ? res.render('Ejs/home',{list:tasks}) : res.status(400).json({ message: 'Something went wrong' }))
         .catch(err => next(err));
 }
 
+//Adding todo route
 function add_todo(req, res, next) {
-    userService.create(req.body)
-        .then(tasks => tasks ? res.render('Ejs/home',{list:tasks}) : res.status(400).json({ message: 'Something went wrong' }))
+    userService.create(req.body,res)
+        .then(()=>{})
         .catch(err => next(err));
 }
 
+//updating route
 function update(req, res, next) {
     userService.update(req.params.id, req.body)
-        .then(tasks => tasks ? res.render('Ejs/home',{list:tasks}) : res.status(400).json({ message: 'Something went wrong' }))
-        .catch(err => next(err));
+       .then(()=>res.redirect('/todo/home'))
+       .catch(err => next(err));
 }
 
+//deleting route
 function _delete(req, res, next) {
     userService._delete(req.params.id)
-        .then(tasks => tasks ? res.render('Ejs/home',{list:tasks}) : res.status(400).json({ message: 'Something went wrong' }))
-        .catch(err => next(err));
+       .then(()=>res.redirect('/todo/home'))
+       .catch(err => next(err));
 }
 
+//route to serve edit page
 function get_edit(req,res,next){
     userService.getEdit(req.params.id)
         .then(task => task ?res.render('Ejs/edit',{tsk:task}):res.status(400).json({ message: 'Something went wrong' }))

@@ -66,8 +66,8 @@
           <tr>
             <td><input type="checkbox" onclick="Redirect('<%= entry._id %>');" checked></td>
             <td><%=entry.task%></td>
-            <td><%=entry.createdDate%></script></td>
-            <td><%=entry.completedDate%></td>
+            <td><%=entry.crDateString%></script></td>
+            <td><%=entry.comDateString%></td>
             <td><a href="/todo/<%= entry._id%>/delete?_method=DELETE" onclick="return confirm('Are you sure you want to delete')"><button class="btn btn-danger">Delete</button></a></td>
           </tr>
           <% }%>
