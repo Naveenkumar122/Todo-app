@@ -1,4 +1,4 @@
 {
-    "connectionString" : "mongodb+srv://naveenkumar:logout@cluster0.xlrln.mongodb.net/test?retryWrites=true&w=majority",
+    "connectionString" : "",
     "key" : "Everyone has an secret"
 }
