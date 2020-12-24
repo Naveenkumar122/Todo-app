@@ -1,4 +1,3 @@
-let config = require('config.json');
 let db = require('helpers/db');
 let tasks = db.tasks;
 
@@ -8,17 +7,28 @@ module.exports = {
     update,
     getEdit,
     updtCfrm,
+    updtNoCfrm,
     _delete
 };
 
 //sevice for updating confirm near the task
-async function updtCfrm(id,res){
+async function updtCfrm(id){
     const task = await tasks.findById(id);
     // validate
     if (!task) throw 'task not found';
     task.completed = true;
     task.completedDate = Date.now();
     task.comDateString =DateString(task.completedDate);
+    await task.save();
+}
+//sevice for updating non-confirm near the completed task
+async function updtNoCfrm(id){
+    const task = await tasks.findById(id);
+    // validate
+    if (!task) throw 'task not found';
+    task.completed = false;
+    task.completedDate = null;
+    task.comDateString =null;
     await task.save();
 }
 
