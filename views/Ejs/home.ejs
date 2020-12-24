@@ -9,8 +9,11 @@
         <!-- JS -->
         <script>
           function Redirect(id) {
-            window.location.replace('https://protected-oasis-11152.herokuapp.com/todo/confirm/'+id);
+            window.location.replace('confirm/'+id);
            }
+          function Redirect1(id) {
+            window.location.replace('no-confirm/'+id);
+          }
        </script>
       </head>
     <body>
@@ -64,7 +67,7 @@
        <%list.forEach(function(entry) {%>
           <% if(entry.completed) {%>
           <tr>
-            <td><input type="checkbox" onclick="Redirect('<%= entry._id %>');" checked></td>
+            <td><input type="checkbox" onclick="Redirect1('<%= entry._id %>');" checked></td>
             <td><%=entry.task%></td>
             <td><%=entry.crDateString%></script></td>
             <td><%=entry.comDateString%></td>
