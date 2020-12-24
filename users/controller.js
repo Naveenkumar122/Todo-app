@@ -18,12 +18,19 @@ router.get('/edit/:id',get_edit);
 router.put('/update/:id', update);
 router.delete('/:id/delete', _delete);
 router.get('/confirm/:id',updateCfrm);
+router.get('/no-confirm/:id',updateNoCfrm);
 
 module.exports = router;
 
 //update confirm route
 function updateCfrm(req,res,next){
     userService.updtCfrm(req.params.id)
+        .then(()=>res.redirect('/todo/home'))
+        .catch(err => next(err));
+}
+//update no-confirm route
+function updateNoCfrm(req,res,next){
+    userService.updtNoCfrm(req.params.id)
         .then(()=>res.redirect('/todo/home'))
         .catch(err => next(err));
 }
