@@ -1,4 +1,5 @@
 {
+  "author": "Naveen kumar",
   "name": "todo-list",
   "version": "1.0.0",
   "description": "This app is used to create tasks and store it in one place.Lets you create,edit and delete tasks.",
@@ -6,7 +7,6 @@
   "scripts": {
     "start": "node server.js"
   },
-  "author": "Naveen kumar",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.0",
